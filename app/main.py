@@ -12,7 +12,7 @@ from contextlib import asynccontextmanager
 from typing import Any
 
 from fastapi import FastAPI, File, Form, HTTPException, Query, Request, UploadFile
-from fastapi.responses import JSONResponse
+from fastapi.responses import JSONResponse, RedirectResponse
 from PIL import Image
 from pydantic import BaseModel, Field
 
@@ -138,6 +138,11 @@ async def read_image(file: UploadFile) -> Image.Image:
         return decode_image(data, settings.max_image_side)
     except ImageError as e:
         raise HTTPException(400, str(e)) from e
+
+
+@app.get("/", include_in_schema=False)
+def root() -> RedirectResponse:
+    return RedirectResponse("/docs")
 
 
 @app.get("/health")
