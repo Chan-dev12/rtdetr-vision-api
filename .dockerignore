@@ -1,0 +1,12 @@
+.git
+.venv
+__pycache__
+.pytest_cache
+data
+runs
+reports/**/failures
+reports/**/ultralytics
+tests
+docs
+*.md
+!README.md

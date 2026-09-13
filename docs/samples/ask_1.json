@@ -1,0 +1,285 @@
+{
+    "question": "How many people are in this image?",
+    "answer": "I count 4 people.",
+    "status": "answered",
+    "route": {
+        "intent": "count",
+        "target_classes": [
+            "person"
+        ],
+        "unsupported_targets": [],
+        "negate": false,
+        "form": "",
+        "reason": "matched 'count' pattern",
+        "source": "rules",
+        "needs_detection": true
+    },
+    "used_detector": true,
+    "answer_source": "template",
+    "guardrail_rules_fired": [],
+    "facts": {
+        "counts_confident": {
+            "person": 4,
+            "head": 3,
+            "helmet": 0,
+            "safety-vest": 0,
+            "hands": 3,
+            "gloves": 0
+        },
+        "counts_uncertain": {
+            "person": 0,
+            "head": 0,
+            "helmet": 0,
+            "safety-vest": 0,
+            "hands": 3,
+            "gloves": 0
+        },
+        "regions_confident": {
+            "person": {
+                "middle-center": 1,
+                "middle-left": 2,
+                "middle-right": 1
+            },
+            "head": {
+                "middle-center": 1,
+                "middle-left": 1,
+                "middle-right": 1
+            },
+            "helmet": {},
+            "safety-vest": {},
+            "hands": {
+                "bottom-left": 1,
+                "middle-center": 1,
+                "middle-left": 1
+            },
+            "gloves": {}
+        },
+        "compliance": {
+            "helmet": {
+                "base": "head",
+                "checked": 3,
+                "with": 0,
+                "without": 3,
+                "unclear": 0,
+                "uncertain_bases": 0,
+                "without_regions": {
+                    "middle-center": 1,
+                    "middle-left": 1,
+                    "middle-right": 1
+                }
+            },
+            "gloves": {
+                "base": "hands",
+                "checked": 3,
+                "with": 0,
+                "without": 3,
+                "unclear": 0,
+                "uncertain_bases": 3,
+                "without_regions": {
+                    "bottom-left": 1,
+                    "middle-center": 1,
+                    "middle-left": 1
+                }
+            },
+            "safety-vest": {
+                "base": "person",
+                "checked": 4,
+                "with": 0,
+                "without": 4,
+                "unclear": 0,
+                "uncertain_bases": 0,
+                "without_regions": {
+                    "middle-center": 1,
+                    "middle-left": 2,
+                    "middle-right": 1
+                }
+            }
+        },
+        "image": {
+            "width": 810,
+            "height": 1080,
+            "brightness": 0.457,
+            "sharpness": 2854.1,
+            "quality_flags": []
+        },
+        "thresholds": {
+            "confident": 0.65,
+            "uncertain": 0.25
+        }
+    },
+    "detections": [
+        {
+            "class_id": 0,
+            "class_name": "person",
+            "confidence": 0.9568,
+            "box": {
+                "x1": 221.8,
+                "y1": 404.8,
+                "x2": 343.6,
+                "y2": 860.7
+            },
+            "region": "middle-center",
+            "confident": true
+        },
+        {
+            "class_id": 0,
+            "class_name": "person",
+            "confidence": 0.9474,
+            "box": {
+                "x1": 48.7,
+                "y1": 395.5,
+                "x2": 246.1,
+                "y2": 904.6
+            },
+            "region": "middle-left",
+            "confident": true
+        },
+        {
+            "class_id": 0,
+            "class_name": "person",
+            "confidence": 0.9365,
+            "box": {
+                "x1": 669.1,
+                "y1": 387.6,
+                "x2": 809.8,
+                "y2": 878.5
+            },
+            "region": "middle-right",
+            "confident": true
+        },
+        {
+            "class_id": 4,
+            "class_name": "hands",
+            "confidence": 0.9184,
+            "box": {
+                "x1": 44.4,
+                "y1": 737.1,
+                "x2": 78.7,
+                "y2": 815.5
+            },
+            "region": "bottom-left",
+            "confident": true
+        },
+        {
+            "class_id": 1,
+            "class_name": "head",
+            "confidence": 0.9087,
+            "box": {
+                "x1": 260.9,
+                "y1": 406.2,
+                "x2": 308.7,
+                "y2": 477.9
+            },
+            "region": "middle-center",
+            "confident": true
+        },
+        {
+            "class_id": 1,
+            "class_name": "head",
+            "confidence": 0.8961,
+            "box": {
+                "x1": 101.5,
+                "y1": 397.3,
+                "x2": 156.2,
+                "y2": 473.0
+            },
+            "region": "middle-left",
+            "confident": true
+        },
+        {
+            "class_id": 4,
+            "class_name": "hands",
+            "confidence": 0.8657,
+            "box": {
+                "x1": 256.9,
+                "y1": 644.2,
+                "x2": 284.5,
+                "y2": 686.1
+            },
+            "region": "middle-center",
+            "confident": true
+        },
+        {
+            "class_id": 4,
+            "class_name": "hands",
+            "confidence": 0.7989,
+            "box": {
+                "x1": 237.4,
+                "y1": 506.3,
+                "x2": 281.1,
+                "y2": 540.4
+            },
+            "region": "middle-left",
+            "confident": true
+        },
+        {
+            "class_id": 1,
+            "class_name": "head",
+            "confidence": 0.7588,
+            "box": {
+                "x1": 788.9,
+                "y1": 392.8,
+                "x2": 810.1,
+                "y2": 463.1
+            },
+            "region": "middle-right",
+            "confident": true
+        },
+        {
+            "class_id": 0,
+            "class_name": "person",
+            "confidence": 0.7459,
+            "box": {
+                "x1": -0.1,
+                "y1": 427.4,
+                "x2": 78.3,
+                "y2": 881.4
+            },
+            "region": "middle-left",
+            "confident": true
+        },
+        {
+            "class_id": 4,
+            "class_name": "hands",
+            "confidence": 0.6273,
+            "box": {
+                "x1": 720.4,
+                "y1": 540.4,
+                "x2": 743.4,
+                "y2": 564.6
+            },
+            "region": "middle-right",
+            "confident": false
+        },
+        {
+            "class_id": 4,
+            "class_name": "hands",
+            "confidence": 0.5828,
+            "box": {
+                "x1": 136.3,
+                "y1": 468.7,
+                "x2": 150.9,
+                "y2": 507.0
+            },
+            "region": "middle-left",
+            "confident": false
+        },
+        {
+            "class_id": 4,
+            "class_name": "hands",
+            "confidence": 0.5366,
+            "box": {
+                "x1": 136.9,
+                "y1": 466.1,
+                "x2": 174.2,
+                "y2": 507.0
+            },
+            "region": "middle-left",
+            "confident": false
+        }
+    ],
+    "timings_ms": {
+        "route_ms": 6.2,
+        "detect_ms": 1179.1
+    }
+}

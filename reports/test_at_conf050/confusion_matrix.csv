@@ -1,0 +1,8 @@
+true \ pred,person,head,helmet,safety-vest,hands,gloves,background
+person,2487,2,0,2,0,0,243
+head,4,2218,1,0,0,0,204
+helmet,0,5,116,0,0,0,33
+safety-vest,2,0,0,46,0,0,49
+hands,0,3,0,0,2733,14,462
+gloves,1,0,0,0,23,315,190
+background,396,226,54,27,309,90,0

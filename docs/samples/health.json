@@ -1,0 +1,16 @@
+{
+    "status": "ok",
+    "model_loaded": true,
+    "load_error": null,
+    "weights": "weights\\best.pt",
+    "classes": [
+        "person",
+        "head",
+        "helmet",
+        "safety-vest",
+        "hands",
+        "gloves"
+    ],
+    "operating_conf": 0.65,
+    "llm_enabled": false
+}

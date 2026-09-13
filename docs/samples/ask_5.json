@@ -1,0 +1,27 @@
+{
+    "question": "What colour is the helmet?",
+    "answer": "I don't have enough information to answer that. My detector only finds these objects: person, head, helmet, safety-vest, hands, gloves, as boxes with confidence scores. It can't tell colours, identities, text or actions. Reason: asks for an attribute (colour, identity, text, action...) that bounding boxes cannot provide.",
+    "status": "insufficient_information",
+    "route": {
+        "intent": "unsupported",
+        "target_classes": [
+            "helmet"
+        ],
+        "unsupported_targets": [],
+        "negate": false,
+        "form": "",
+        "reason": "asks for an attribute (colour, identity, text, action...) that bounding boxes cannot provide",
+        "source": "rules",
+        "needs_detection": false
+    },
+    "used_detector": false,
+    "answer_source": "template",
+    "guardrail_rules_fired": [
+        "R5"
+    ],
+    "facts": null,
+    "detections": null,
+    "timings_ms": {
+        "route_ms": 0.4
+    }
+}

@@ -1,0 +1,104 @@
+{
+  "sources": [
+    {
+      "name": "sh17",
+      "path": "/kaggle/input/datasets/mugheesahmad/sh17-dataset-for-ppe-detection",
+      "images_subdir": "images",
+      "url": "https://www.kaggle.com/datasets/mugheesahmad/sh17-dataset-for-ppe-detection (Version 1)",
+      "paper": "Ahmad & Rahimi, J. Safety Science and Resilience 2024, doi:10.1016/j.jnlssr.2024.09.002",
+      "license": "CC BY-NC-SA 4.0 (images from Pexels)",
+      "names": [
+        "person",
+        "ear",
+        "ear-mufs",
+        "face",
+        "face-guard",
+        "face-mask",
+        "foot",
+        "tool",
+        "glasses",
+        "gloves",
+        "helmet",
+        "hands",
+        "head",
+        "medical-suit",
+        "shoes",
+        "safety-suit",
+        "safety-vest"
+      ],
+      "class_map": {
+        "person": "person",
+        "head": "head",
+        "helmet": "helmet",
+        "safety-vest": "safety-vest",
+        "hands": "hands",
+        "gloves": "gloves",
+        "ear": null,
+        "ear-mufs": null,
+        "face": null,
+        "face-guard": null,
+        "face-mask": null,
+        "foot": null,
+        "tool": null,
+        "glasses": null,
+        "medical-suit": null,
+        "shoes": null,
+        "safety-suit": null
+      }
+    }
+  ],
+  "exact_duplicates_dropped": 0,
+  "unreadable_images": [],
+  "near_duplicate_groups": 8085,
+  "images_after_dedup": 8093,
+  "label_fixes": 1836,
+  "max_side": 1280,
+  "fixed_test": {
+    "fixed_test_list": "/kaggle/input/datasets/mugheesahmad/sh17-dataset-for-ppe-detection/val_files.txt",
+    "listed": 1620,
+    "listed_but_not_found": 0,
+    "groups_spanning_official_split": 6,
+    "train_images_dropped_as_near_duplicates_of_test": 6
+  },
+  "splits": {
+    "train": {
+      "images": 5502,
+      "background_images": 86,
+      "groups": 5495,
+      "instances": {
+        "person": 9308,
+        "head": 8111,
+        "helmet": 652,
+        "safety-vest": 326,
+        "hands": 10763,
+        "gloves": 1896
+      }
+    },
+    "val": {
+      "images": 971,
+      "background_images": 15,
+      "groups": 971,
+      "instances": {
+        "person": 1753,
+        "head": 1441,
+        "helmet": 121,
+        "safety-vest": 107,
+        "hands": 1863,
+        "gloves": 365
+      }
+    },
+    "test": {
+      "images": 1620,
+      "background_images": 21,
+      "groups": 1619,
+      "instances": {
+        "person": 2734,
+        "head": 2427,
+        "helmet": 154,
+        "safety-vest": 97,
+        "hands": 3212,
+        "gloves": 529
+      }
+    }
+  }
+}

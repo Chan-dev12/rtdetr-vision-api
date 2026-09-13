@@ -1,0 +1,122 @@
+{
+    "image": {
+        "width": 810,
+        "height": 1080
+    },
+    "count": 10,
+    "conf_threshold": 0.65,
+    "detections": [
+        {
+            "class_id": 0,
+            "class_name": "person",
+            "confidence": 0.9568,
+            "box": {
+                "x1": 221.8,
+                "y1": 404.8,
+                "x2": 343.6,
+                "y2": 860.7
+            }
+        },
+        {
+            "class_id": 0,
+            "class_name": "person",
+            "confidence": 0.9474,
+            "box": {
+                "x1": 48.7,
+                "y1": 395.5,
+                "x2": 246.1,
+                "y2": 904.6
+            }
+        },
+        {
+            "class_id": 0,
+            "class_name": "person",
+            "confidence": 0.9365,
+            "box": {
+                "x1": 669.1,
+                "y1": 387.6,
+                "x2": 809.8,
+                "y2": 878.5
+            }
+        },
+        {
+            "class_id": 4,
+            "class_name": "hands",
+            "confidence": 0.9184,
+            "box": {
+                "x1": 44.4,
+                "y1": 737.1,
+                "x2": 78.7,
+                "y2": 815.5
+            }
+        },
+        {
+            "class_id": 1,
+            "class_name": "head",
+            "confidence": 0.9087,
+            "box": {
+                "x1": 260.9,
+                "y1": 406.2,
+                "x2": 308.7,
+                "y2": 477.9
+            }
+        },
+        {
+            "class_id": 1,
+            "class_name": "head",
+            "confidence": 0.8961,
+            "box": {
+                "x1": 101.5,
+                "y1": 397.3,
+                "x2": 156.2,
+                "y2": 473.0
+            }
+        },
+        {
+            "class_id": 4,
+            "class_name": "hands",
+            "confidence": 0.8657,
+            "box": {
+                "x1": 256.9,
+                "y1": 644.2,
+                "x2": 284.5,
+                "y2": 686.1
+            }
+        },
+        {
+            "class_id": 4,
+            "class_name": "hands",
+            "confidence": 0.7989,
+            "box": {
+                "x1": 237.4,
+                "y1": 506.3,
+                "x2": 281.1,
+                "y2": 540.4
+            }
+        },
+        {
+            "class_id": 1,
+            "class_name": "head",
+            "confidence": 0.7588,
+            "box": {
+                "x1": 788.9,
+                "y1": 392.8,
+                "x2": 810.1,
+                "y2": 463.1
+            }
+        },
+        {
+            "class_id": 0,
+            "class_name": "person",
+            "confidence": 0.7459,
+            "box": {
+                "x1": -0.1,
+                "y1": 427.4,
+                "x2": 78.3,
+                "y2": 881.4
+            }
+        }
+    ],
+    "inference_ms": 1281.2,
+    "model": "best.pt"
+}

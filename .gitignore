@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/
+.env
+data/raw/*
+data/processed/
+runs/
+weights/*.pt
+weights/*.part
+*.pt
+reports/*/ultralytics/*.jpg

@@ -1,0 +1,11 @@
+path: /kaggle/working/rtdetr-vision-api/data/processed
+train: train/images
+val: val/images
+test: test/images
+names:
+  0: person
+  1: head
+  2: helmet
+  3: safety-vest
+  4: hands
+  5: gloves

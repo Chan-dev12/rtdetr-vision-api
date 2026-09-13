@@ -1,0 +1,49 @@
+# Hyperparameters for scripts/train.py. Keys other than `model` and `export_weights`
+# are passed straight to Ultralytics `RTDETR.train()`; see docs.ultralytics.com/modes/train
+# Command-line --set overrides used for the real run are recorded in weights/run_summary.json.
+
+model: rtdetr-l.pt              # COCO-pretrained RT-DETR-L (~32M params). rtdetr-x.pt is larger and slower.
+export_weights: weights/best.pt # best checkpoint gets copied here after training
+
+data: data/processed/data.yaml
+epochs: 60
+time: null                      # hours. If set, OVERRIDES epochs: Ultralytics fits the LR schedule to the budget.
+                                # The Kaggle notebook sets this so training always finishes inside the session limit.
+patience: 15                    # early stop if val mAP50-95 hasn't improved for this many epochs
+imgsz: 640
+batch: 8                        # fits a 16 GB T4 at 640. Halve it if you hit CUDA OOM.
+workers: 4
+cache: false                    # 'ram' is faster but Ultralytics warns it can make runs non-deterministic
+device: null                    # null = auto (first GPU if present, else CPU)
+
+# Optimiser. Set it explicitly: optimizer=auto silently overrides lr0.
+optimizer: AdamW
+lr0: 0.0001                     # 1e-4 is the usual lr for fine-tuning DETR-family models
+lrf: 0.01                       # final lr = lr0 * lrf
+momentum: 0.9                   # AdamW beta1
+weight_decay: 0.0001
+warmup_epochs: 2
+cos_lr: true
+amp: true
+
+# Augmentation (Ultralytics defaults, listed so they are recorded)
+hsv_h: 0.015
+hsv_s: 0.7
+hsv_v: 0.4
+degrees: 0.0
+translate: 0.1
+scale: 0.5
+fliplr: 0.5
+mosaic: 1.0
+mixup: 0.0
+close_mosaic: 10                # turn mosaic off for the last N epochs
+
+# Reproducibility
+seed: 42
+deterministic: true
+
+# Output
+project: runs
+name: rtdetr_l_finetune
+exist_ok: false
+plots: true

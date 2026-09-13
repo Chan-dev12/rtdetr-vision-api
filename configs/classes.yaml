@@ -1,0 +1,63 @@
+# Part B vocabulary for the SH17 PPE model. Class keys MUST match the trained model's names.
+# Per class: description (read by the LLM router), optional label/plural (answer wording),
+# synonyms (rule router, longest phrase wins).
+domain: "industrial / manufacturing worker-safety (PPE)"
+
+classes:
+  person:
+    description: "A whole person (worker)."
+    plural: people
+    synonyms: [person, people, persons, worker, workers, human, humans, man, men, woman, women,
+               employee, employees, staff, operator, operators, someone, anyone, everyone, everybody, anybody]
+  head:
+    description: "A person's head, any view (front, back, top). Used to check helmet compliance."
+    synonyms: [head, heads]
+  helmet:
+    description: "A hard hat / safety helmet."
+    synonyms: [helmet, helmets, hard hat, hard hats, hardhat, hardhats, safety helmet, safety helmets]
+  safety-vest:
+    label: safety vest
+    plural: safety vests
+    description: "A high-visibility safety vest."
+    synonyms: [safety vest, safety vests, safety-vest, vest, vests, hi-vis, hi vis, high visibility vest,
+               high-visibility vest, reflective vest, reflective vests]
+  hands:
+    label: hand
+    plural: hands
+    description: "A person's hand."
+    synonyms: [hand, hands]
+  gloves:
+    label: glove
+    plural: gloves
+    description: "A protective glove."
+    synonyms: [glove, gloves, safety gloves, work gloves, protective gloves]
+
+# PPE compliance: "is anyone not wearing X?" is answered by matching each confident body-part box
+# (base) to a PPE box, one-to-one. A PPE box counts for a base when
+#   area(PPE ∩ base expanded by `expand` of its size on each side) / area(PPE) >= min_overlap.
+# This works whether or not SH17 also labels a head that is under a helmet (check label previews).
+compliance:
+  helmet:
+    base: head
+    expand: 0.25          # helmets sit on top of / around the head box
+    min_overlap: 0.3
+  gloves:
+    base: hands
+    expand: 0.15
+    min_overlap: 0.3
+  safety-vest:
+    base: person
+    expand: 0.0
+    min_overlap: 0.5
+    caveat: "People whose torso is cropped out or hidden are counted as 'no vest'."
+
+thresholds:
+  operating_conf: 0.65     # set from reports/test/metrics.json -> f1_optimal_conf after training
+  uncertain_conf: 0.25
+  min_class_recall: 0.60
+  dense_scene_count: 25
+  # More confident boxes than this in one image = the output itself is untrustworthy (wrong weights,
+  # broken config, degenerate image). The layer refuses instead of reporting nonsense counts (R7).
+  max_plausible_detections: 150
+
+reliability_csv: reports/test/per_class.csv

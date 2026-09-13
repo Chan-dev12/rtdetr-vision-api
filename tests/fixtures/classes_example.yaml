@@ -1,0 +1,46 @@
+# Vocabulary and thresholds for the Part B reasoning layer (/ask).
+# The keys under `classes` MUST match the class names inside your trained weights.
+# The app logs a warning at startup if they don't.
+# EXAMPLE DOMAIN. Replace it together with configs/dataset.yaml.
+# Per class: description (the LLM router reads it), optional label/plural (answer wording), synonyms (rule router).
+
+domain: "construction-site PPE"
+
+classes:
+  helmet:
+    description: "A hard hat / safety helmet on a person's head."
+    plural: helmets
+    synonyms: [helmet, helmets, hard hat, hard hats, hardhat, hardhats, safety helmet, safety helmets]
+  head:
+    label: bare head
+    description: >-
+      A person's head WITHOUT a helmet. This is how the model represents
+      'someone not wearing a helmet'.
+    plural: bare heads
+    synonyms: [bare head, bare heads, no helmet, no helmets, without a helmet, without helmets,
+               without helmet, not wearing a helmet, not wearing helmets, not wearing helmet,
+               unprotected head, unprotected heads, head, heads]
+  vest:
+    description: "A high-visibility safety vest."
+    plural: vests
+    synonyms: [vest, vests, hi-vis, hi vis, high visibility vest, high-visibility vest,
+               safety vest, safety vests, reflective vest, reflective vests]
+
+thresholds:
+  # Detections >= operating_conf count as "confident". Choose this value from
+  # reports/<split>/threshold_sweep.csv (evaluate.py prints the F1-optimal one).
+  operating_conf: 0.50
+  # Detections in [uncertain_conf, operating_conf) are "uncertain". They are never
+  # counted as facts, but they stop the layer from giving a confident "none".
+  uncertain_conf: 0.25
+  # If a class's test-set recall (from evaluate.py) is below this, the layer refuses
+  # to answer "there are none" for that class.
+  min_class_recall: 0.60
+  # When a class has more boxes than this, counts get an undercount caveat (crowding/occlusion).
+  dense_scene_count: 25
+  # More confident boxes than this in one image = the output itself is untrustworthy (wrong weights,
+  # broken config, degenerate image). The layer refuses instead of reporting nonsense counts (R7).
+  max_plausible_detections: 150
+
+# Where the per-class recall measured by scripts/evaluate.py lives. Optional.
+reliability_csv: null

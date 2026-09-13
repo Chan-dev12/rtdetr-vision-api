@@ -1,0 +1,54 @@
+# SH17 -> 6-class PPE dataset. Consumed by scripts/prepare_data.py.
+# On Kaggle the notebook writes configs/dataset_kaggle.yaml with the /kaggle/input paths filled in.
+
+output_dir: data/processed
+
+# Final classes (index = class id in the trained model). Each PPE item is paired with the body
+# part it protects (see `compliance` in configs/classes.yaml): head<->helmet, hands<->gloves, person<->vest.
+target_classes: [person, head, helmet, safety-vest, hands, gloves]
+
+# SH17 images are 1920-8192 px. Training runs at 640 px, so 1280 keeps 2x headroom for small
+# objects (gloves) while shrinking the dataset from ~14 GB to ~1-2 GB and speeding up data loading.
+max_side: 1280
+jpeg_quality: 92
+
+# TEST = SH17's official val_files.txt (1,620 images), so results compare with the authors'
+# published YOLO baselines. Train/val are split from the remaining images, by near-duplicate group.
+fixed_test:
+  source: sh17
+  list: data/raw/sh17/val_files.txt
+split: {train: 0.85, val: 0.15}
+seed: 42
+phash_max_distance: 6
+group_regex: null
+
+sources:
+  - name: sh17
+    path: data/raw/sh17
+    images_subdir: images        # only scan <path>/images (the dataset also ships meta-data/ and voc_labels/)
+    url: "https://www.kaggle.com/datasets/mugheesahmad/sh17-dataset-for-ppe-detection (Version 1)"
+    paper: "Ahmad & Rahimi, J. Safety Science and Resilience 2024, doi:10.1016/j.jnlssr.2024.09.002"
+    license: "CC BY-NC-SA 4.0 (images from Pexels)"
+    # Class ids exactly as in the official sh17.yaml. NOTE: this order differs from the README's list.
+    names: [person, ear, ear-mufs, face, face-guard, face-mask, foot, tool, glasses, gloves,
+            helmet, hands, head, medical-suit, shoes, safety-suit, safety-vest]
+    class_map:
+      person: person
+      head: head
+      helmet: helmet
+      safety-vest: safety-vest
+      hands: hands
+      gloves: gloves
+      # dropped: tiny or rare, not needed for the compliance questions. Their objects stay in the
+      # images as unlabelled background, which is fine; the model just learns not to fire on them.
+      ear: null
+      ear-mufs: null
+      face: null
+      face-guard: null
+      face-mask: null
+      foot: null
+      tool: null
+      glasses: null
+      medical-suit: null
+      shoes: null
+      safety-suit: null

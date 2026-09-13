@@ -1,0 +1,26 @@
+{
+  "weights": "weights/best.pt",
+  "data": "data/processed/data.yaml",
+  "split": "test",
+  "images": 1620,
+  "gt_instances": 9153,
+  "coco_map50": 0.7812,
+  "coco_map50_95": 0.5596,
+  "operating_conf": 0.65,
+  "match_iou": 0.5,
+  "operating_precision": 0.922,
+  "operating_recall": 0.8316,
+  "operating_f1": 0.8745,
+  "f1_optimal_conf": 0.65,
+  "f1_at_optimal_conf": 0.8745,
+  "error_type_counts": {
+    "FP:background": 366,
+    "FN:missed_crowded": 176,
+    "FN:missed": 1169,
+    "FP:poor_localization": 190,
+    "FN:poor_localization": 156,
+    "FP:duplicate": 48,
+    "FP:class_confusion": 40,
+    "FN:class_confusion": 40
+  }
+}

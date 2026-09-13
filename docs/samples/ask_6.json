@@ -1,0 +1,23 @@
+{
+    "question": "What's the capital of France?",
+    "answer": "That question isn't about the image, so I didn't run the detector. I answer questions about industrial / manufacturing worker-safety (PPE) images (objects I know: person, head, helmet, safety-vest, hands, gloves).",
+    "status": "no_detection_needed",
+    "route": {
+        "intent": "general",
+        "target_classes": [],
+        "unsupported_targets": [],
+        "negate": false,
+        "form": "",
+        "reason": "no reference to the image or any detectable class",
+        "source": "rules",
+        "needs_detection": false
+    },
+    "used_detector": false,
+    "answer_source": "template",
+    "guardrail_rules_fired": [],
+    "facts": null,
+    "detections": null,
+    "timings_ms": {
+        "route_ms": 0.4
+    }
+}
