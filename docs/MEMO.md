@@ -83,9 +83,11 @@ rejected.
 
 **"Insufficient information" example** (real output, `docs/samples/ask_hard_image.json`):
 
-> Q: "Are there any safety vests?" on a darkened copy of `docs/samples/bus.jpg`
-> Facts: 4 people and 0 vests detected; image flagged "very dark"; vest test recall 0.37.
-> A: "I didn't detect any safety vests, but I can't be confident there are none: the image looks
+> **Q:** "Are there any safety vests?" on a darkened copy of `docs/samples/bus.jpg`
+>
+> **Facts:** 4 people and 0 vests detected; image flagged "very dark"; vest test recall 0.37.
+>
+> **A:** "I didn't detect any safety vests, but I can't be confident there are none: the image looks
 > very dark, which is a known cause of missed detections; the detector only finds 37% of safety
 > vests on its test set." (`status: insufficient_information`, rule R3)
 
